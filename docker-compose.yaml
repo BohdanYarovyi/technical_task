@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  database-mysql:
+    image: mysql:latest
+    container_name: agrotep_fishstore_mysql_db
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: fishstore
+      MYSQL_ROOT_PASSWORD: root
+      # MYSQL_USER: new_mysql_user_login
+      # MYSQL_PASSWORD: new_mysql_user_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+volumes:
+  mysql_data:
+
+networks:
+  mysql_network:
