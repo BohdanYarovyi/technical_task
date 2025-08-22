@@ -1,3 +1,6 @@
 .idea
 target
 public
+src/test/images
+
+fishmarket.iml
