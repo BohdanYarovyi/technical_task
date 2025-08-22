@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +27,17 @@
 </head>
 <body>
 <div class="container">
+				<!--
+				    When you got to http:localhost:8080, it gives you just index.html without info.
+				    When you got to http:localhost:8080/fish, it is ok.
+				 -->
+				<a th:href="@{/fish}">Fish list</a>
+				<a th:href="@{/logout}">Logout</a>
 				<h1 class="text-center my-4">Рибка на продаж</h1>
 
-				<a class="btn btn-success" href="/fish/create">Додати рибки</a>
+				<div sec:authorize="hasRole('ADMIN')">
+								<a class="btn btn-success" href="/fish/create">Додати рибки</a>
+				</div>
 
 				<table class="table">
 								<thead>
@@ -53,8 +62,10 @@
 																</div>
 												</td>
 												<td>
-																<a class="btn btn-danger btn-sm" th:href="@{/fish/delete(id=${fish.id})}"
-																   onclick="return confirm('Ви впевнені?')">Прибрати</a>
+																<div sec:authorize="hasRole('ADMIN')">
+																				<a class="btn btn-danger btn-sm" th:href="@{/fish/delete(id=${fish.id})}"
+																				   onclick="return confirm('Ви впевнені?')">Прибрати</a>
+																</div>
 												</td>
 								</tr>
 								</tbody>

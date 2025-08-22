@@ -1,6 +1,5 @@
 package technikal.task.fishmarket.controllers;
 
-
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -33,7 +32,7 @@ public class FishController {
 	public String showFishList(Model model) {
 		List<Fish> fishlist = repo.findAll(Sort.by(Sort.Direction.DESC, "id"));
 		model.addAttribute("fishlist", fishlist);
-		System.out.println(fishlist);
+
 		return "index";
 	}
 

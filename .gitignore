@@ -1,6 +1,6 @@
 .idea
 target
-public
+/public
 src/test/images
 
 fishmarket.iml

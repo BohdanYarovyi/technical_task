@@ -22,7 +22,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class LocalImageRepositoryTest {
+class LocalImageUserRepositoryTest {
     private static final String IMAGE_DIRECTORY = "src/test/images";
     private static final String TEST_FILE_EXTENSION = ".jpeg";
 
